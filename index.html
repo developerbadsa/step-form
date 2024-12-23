@@ -4,71 +4,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Final Step Form</title>
+    <title>Multi-Step Form</title>
     <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
     <div class="form-container">
         <div class="form-header">
-            <h2>Schnell & Vollkommen Unverbindlich Anfragen</h2>
-            <p>Ihr kostenfreies Angebot in nur <strong>2 Minuten</strong></p>
+            <h2>Schnell & Unverbindlich Anfragen</h2>
         </div>
-        <form class="final-step-form">
-            <h3>An wen sollen wir das unverbindliche Angebot senden?</h3>
-
-            <div class="form-group">
-                <label for="salutation">Anrede<span class="form-required">*</span></label>
-                <select id="salutation" name="salutation" required>
-                    <option value="">Bitte auswählen</option>
-                    <option value="Herr">Herr</option>
-                    <option value="Frau">Frau</option>
-                    <option value="Familie">Familie</option>
-                </select>
+        <form id="multiStepForm">
+            <!-- Step 1 -->
+            <div class="form-step active">
+                <h3>Wo wird die Betreuung benötigt?</h3>
+                <div class="form-group">
+                    <label for="plz">PLZ</label>
+                    <input type="text" id="plz" placeholder="Bitte geben Sie die PLZ ein" required>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="next">Weiter</button>
+                </div>
             </div>
 
-            <div class="form-row">
+            <!-- Step 2 -->
+            <div class="form-step">
+                <h3>Wann soll die Betreuung beginnen?</h3>
+                <div class="form-group">
+                    <input type="radio" id="sofort" name="start" value="sofort">
+                    <label for="sofort">Schnellstmöglich (5-7 Werktage)</label><br>
+
+                    <input type="radio" id="offen" name="start" value="offen">
+                    <label for="offen">Derzeit noch offen</label><br>
+
+                    <input type="radio" id="datum" name="start" value="datum">
+                    <label for="datum">Datum festlegen</label>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="back">Zurück</button>
+                    <button type="button" class="next">Weiter</button>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="form-step">
+                <h3>Gewünschte Deutschkenntnisse der Betreuungskraft</h3>
+                <div class="form-group">
+                    <input type="radio" id="grundkenntnisse" name="language" value="Grundkenntnisse">
+                    <label for="grundkenntnisse">Grundkenntnisse</label><br>
+
+                    <input type="radio" id="mittelstufe" name="language" value="Mittelstufe">
+                    <label for="mittelstufe">Mittelstufe (empfohlen)</label><br>
+
+                    <input type="radio" id="fortgeschritten" name="language" value="Fortgeschritten">
+                    <label for="fortgeschritten">Fortgeschritten</label><br>
+
+                    <input type="radio" id="fliessend" name="language" value="Fließend">
+                    <label for="fliessend">Fließend</label>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="back">Zurück</button>
+                    <button type="button" class="next">Weiter</button>
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="form-step">
+                <h3>Wie viele Personen sind zu betreuen?</h3>
+                <div class="form-group">
+                    <input type="radio" id="onePerson" name="persons" value="1">
+                    <label for="onePerson">1 Person</label><br>
+
+                    <input type="radio" id="twoPersons" name="persons" value="2">
+                    <label for="twoPersons">2 Personen</label>
+                </div>
+                <h3>Befindet sich eine weitere Person im Haushalt?</h3>
+                <div class="form-group">
+                    <input type="radio" id="yes" name="additionalPerson" value="Yes">
+                    <label for="yes">Ja</label><br>
+
+                    <input type="radio" id="no" name="additionalPerson" value="No">
+                    <label for="no">Nein</label>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="back">Zurück</button>
+                    <button type="button" class="next">Weiter</button>
+                </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="form-step">
+                <h3>Welcher Pflegegrad liegt vor?</h3>
+                <div class="form-group">
+                    <input type="radio" id="none" name="careLevel" value="0">
+                    <label for="none">Keiner</label><br>
+
+                    <input type="radio" id="one" name="careLevel" value="1">
+                    <label for="one">1</label><br>
+
+                    <input type="radio" id="two" name="careLevel" value="2">
+                    <label for="two">2</label><br>
+
+                    <input type="radio" id="three" name="careLevel" value="3">
+                    <label for="three">3</label><br>
+
+                    <input type="radio" id="four" name="careLevel" value="4">
+                    <label for="four">4</label><br>
+
+                    <input type="radio" id="five" name="careLevel" value="5">
+                    <label for="five">5</label>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="back">Zurück</button>
+                    <button type="button" class="next">Weiter</button>
+                </div>
+            </div>
+
+            <!-- Add additional steps similarly -->
+
+            <!-- Final Step -->
+            <div class="form-step">
+                <h3>An wen sollen wir das unverbindliche Angebot senden?</h3>
+                <div class="form-group">
+                    <label for="salutation">Anrede<span class="form-required">*</span></label>
+                    <select id="salutation" name="salutation" required>
+                        <option value="">Bitte auswählen</option>
+                        <option value="Herr">Herr</option>
+                        <option value="Frau">Frau</option>
+                        <option value="Familie">Familie</option>
+                    </select>
+                </div>
+            
                 <div class="form-group">
                     <label for="firstName">Vorname<span class="form-required">*</span></label>
                     <input type="text" id="firstName" name="firstName" placeholder="Vorname" required>
                 </div>
+            
                 <div class="form-group">
                     <label for="lastName">Nachname<span class="form-required">*</span></label>
                     <input type="text" id="lastName" name="lastName" placeholder="Nachname" required>
                 </div>
-            </div>
-
-            <div class="form-row">
+            
                 <div class="form-group">
                     <label for="email">E-Mail<span class="form-required">*</span></label>
-                    <input type="email" id="email" name="email" placeholder="beispiel@beispiel.de" required>
+                    <input type="email" id="email" name="email" placeholder="beispiel@domain.com" required>
                 </div>
+            
                 <div class="form-group">
                     <label for="phone">Telefonnummer<span class="form-required">*</span></label>
-                    <input type="tel" id="phone" name="phone" placeholder="Bitte geben Sie eine gültige Telefonnummer ein." required>
+                    <input type="tel" id="phone" name="phone" placeholder="Ihre Telefonnummer" required>
+                </div>
+            
+                <div class="form-group">
+                    <label for="optionalPhone">Telefonnummer (optional)</label>
+                    <input type="tel" id="optionalPhone" name="optionalPhone" placeholder="Optional">
+                </div>
+            
+                <div class="form-group">
+                    <label class="form-label">Datenschutz<span class="form-required">*</span></label>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="datenschutz" name="datenschutz" required>
+                        <label for="datenschutz">
+                            Ich willige in die Verarbeitung der angegebenen Gesundheitsdaten ein, bzw. versichere, dass die betroffene Person in diese Verarbeitung eingewilligt hat, sofern es sich nicht um Daten zu meiner Person handelt. Die Einwilligung kann jederzeit mit Wirkung für die Zukunft widerrufen werden. Die <a href="https://www.pflegehelden.de/datenschutz-impressum/" target="_blank" rel="nofollow">Datenschutzhinweise</a>, insbesondere zur erstmaligen Suche einer Pflegekraft, habe ich zur Kenntnis genommen und werde auch die betroffene Person entsprechend informieren.*
+                        </label>
+                    </div>
+                </div>
+            
+                <div class="form-group">
+                    <label for="newsletter">Newsletter</label>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="newsletter" name="newsletter">
+                        <label for="newsletter">
+                            Bitte informieren Sie mich zum Thema häusliche Pflege per E-Mail. Die <a href="https://www.pflegehelden.de/datenschutz-impressum/" target="_blank" rel="nofollow">Informationen zum Datenschutz</a> habe ich zur Kenntnis genommen.
+                        </label>
+                    </div>
+                </div>
+            
+                <div class="form-actions">
+                    <button type="button" class="back">Zurück</button>
+                    <button type="submit">Absenden</button>
                 </div>
             </div>
-
-            <div class="form-group checkbox-group">
-                <input type="checkbox" id="datenschutz" name="datenschutz" required>
-                <label for="datenschutz">
-                    Ich willige in die Verarbeitung der angegebenen Gesundheitsdaten ein, bzw. versichere, dass die betroffene Person in diese Verarbeitung eingewilligt hat, sofern es sich nicht um Daten zu meiner Person handelt. Die Einwilligung kann jederzeit mit Wirkung für die Zukunft widerrufen werden. Die <a href="#" target="_blank" rel="nofollow">Datenschutzhinweise</a> habe ich zur Kenntnis genommen und werde auch die betroffene Person entsprechend informieren.*
-                </label>
-            </div>
-
-            <div class="form-group checkbox-group">
-                <input type="checkbox" id="newsletter" name="newsletter">
-                <label for="newsletter">
-                    Bitte informieren Sie mich zum Thema häusliche Pflege per E-Mail. Die <a href="#" target="_blank" rel="nofollow">Informationen zum Datenschutz</a> habe ich zur Kenntnis genommen.
-                </label>
-            </div>
-
-            <div class="form-actions">
-                <button type="button" class="back-btn">Zurück</button>
-                <button type="submit" class="submit-btn">Absenden</button>
-            </div>
+            
         </form>
     </div>
+    <script src="js/index.js"></script>
 </body>
 
 </html>

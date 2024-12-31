@@ -19,8 +19,20 @@
                 <h3>Wo wird die Betreuung benötigt?</h3>
                 <div class="form-group">
                     <label for="plz">PLZ</label>
-                    <input type="text" id="plz" placeholder="Bitte geben Sie die PLZ ein" required>
+                    <input
+                        type="text"
+                        id="plz"
+                        class="plz-input form-textbox validate[required, Fill Mask]"
+                        placeholder="-----"
+                        maxlength="5"
+                        required
+                    />
+                    <label class="form-sub-label" for="plz">
+                        Bitte tragen Sie hier die Postleitzahl des Betreuungsortes ein.
+                    </label>
+                    <p class="error-message" id="plz-error" style="display: none;">Dies ist ein Pflichtfeld.</p>
                 </div>
+                
                 <div class="form-actions">
                     <button type="button" class="next">Weiter</button>
                 </div>
